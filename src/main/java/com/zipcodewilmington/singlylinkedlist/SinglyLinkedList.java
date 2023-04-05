@@ -34,14 +34,23 @@ public class SinglyLinkedList {
         }
     }
 //    remove -- remove an element (specified by numeric index) from the list
+    public void remove(int indexToRemove){
+        //completely skip over indexToRemove so the index prior to indexToRemove
+//        should .next to the one after indextToRemove or point to null
+    }
 //    contains -- returns true if the element is in the list, false otherwise
+    public boolean ifContains(int containing){
+        return true;
+    }
 //    find -- returns the element's index if it is in the list, -1 otherwise
 //    size -- returns the current size of the list
     public int size(){
         int count = 0;
         Node current = head;
-        if (head.next == null){
-            return 1;
+        if (head == null){
+            return count;
+        } else {
+            count++;
         }
         while (current.next != null){
             current = current.next;
@@ -50,7 +59,11 @@ public class SinglyLinkedList {
         return count;
     }
 //    get -- returns the element at the specified index
-//    copy -- returns a new linked list containing the same values (look up deep versus shallow copy)
-//    sort -- sorts the list using your algorithm of choice. You must perform the sorting yourself (no fair using someone else's library)
+//
+//    copy -- returns a new linked list containing the
+//    same values (look up deep versus shallow copy)
+//
+//    sort -- sorts the list using your algorithm of choice.
+//    You must perform the sorting yourself (no fair using someone else's library)
 
 }
