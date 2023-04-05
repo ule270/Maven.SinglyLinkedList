@@ -21,15 +21,30 @@ public class SinglyLinkedListTest {
     }
     @Test
     public void testRemove(){
+        list.addElement(0);
+        list.addElement(1);
+
+        list.remove(1);
+
+        Assert.assertEquals(1, list.size());
 
     }
     @Test
     public void testContains(){
+        list.addElement(0);
+        list.addElement(1);
 
+        Assert.assertTrue(list.ifContains(0));
     }
     @Test
     public void testFind(){
+        int expected = 1;
+        list.addElement(0);
+        list.addElement(1);
 
+        int actual = list.find(1);
+
+        Assert.assertEquals(1, actual);
     }
 
     @Test
@@ -47,14 +62,37 @@ public class SinglyLinkedListTest {
 
     @Test
     public void testGet(){
+        int expected = 1;
+        list.addElement(0);
+        list.addElement(1);
 
+        list.getElement(1);
+
+        Assert.assertEquals(expected, list.getElement(1));
     }
     @Test
     public void testCopy(){
+        list.addElement(0);
+        list.addElement(1);
+        list.addElement(2);
+
+        SinglyLinkedList newList = list.copy();
+        for (int i = 0; i < list.size(); i++){
+          Assert.assertEquals(list, newList);
+        }
 
     }
     @Test
     public void testSort(){
+        list.addElement(0);
+        list.addElement(1);
+        list.addElement(2);
+
+        list.sort();
+
+        Assert.assertEquals(list.getElement(0), 0);
+        Assert.assertEquals(list.getElement(1), 1);
+        Assert.assertEquals(list.getElement(2), 2);
 
     }
 }
