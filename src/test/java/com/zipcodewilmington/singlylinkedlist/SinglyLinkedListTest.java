@@ -33,8 +33,17 @@ public class SinglyLinkedListTest {
     public void testContains(){
         list.addElement(0);
         list.addElement(1);
+        list.addElement(2);
 
-        Assert.assertTrue(list.ifContains(0));
+        boolean result = list.ifContains(0);
+        Assert.assertTrue(result);
+
+        boolean result1 = list.ifContains(1);
+        Assert.assertTrue(result1);
+
+        boolean result3 = list.ifContains(3);
+        Assert.assertFalse(result3);
+
     }
     @Test
     public void testFind(){

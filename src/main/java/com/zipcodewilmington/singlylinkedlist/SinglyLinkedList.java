@@ -57,7 +57,8 @@ public class SinglyLinkedList {
     public boolean ifContains(int containing){
         Node current = head;
         while (current != null) {
-            if (current.equals(containing)) {
+            if (current.data == (containing)) {
+                // needs .data to get the element of the list, not the node;
                 return true;
             }
             current = current.next;
