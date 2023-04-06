@@ -142,6 +142,55 @@ public class SinglyLinkedList {
 //    sort -- sorts the list using your algorithm of choice.
 //    You must perform the sorting yourself (no fair using someone else's library)
     public void sort() {
-    }
+        //sorting in ascending order;
+//        if (head == null || head.next == null) {
+//            // no elements inside
+//            return;
+//        }
+//        boolean swapped;
+//        do {
+//            swapped = false;
+//            Node prev = null;
+//            Node current = head;
+//            while (current.next != null) {
+//                if (current.data > current.next.data) {
+//                    // if data is greater
+//                    Node temp = current.next;
+//                    current.next = temp.next;
+//                    temp.next = current;
+//                    if (prev == null) {
+//                        head = temp;
+//                    } else {
+//                        prev.next = temp;
+//                    }
+//                    prev = temp;
+//                    swapped = true;
+//                } else {
+//                    prev = current;
+//                    current = current.next;
+//                }
+//            }
+//        } while (swapped);
 
+        if (head == null) {
+            return;
+        }
+        Node current = head;
+        Node index = null;
+        int temp;
+        while (current.next != null) {
+            index = current.next;
+
+            while (index != null) {
+                if (current.data > index.data) {
+                    temp = current.data;
+                    current.data = index.data;
+                    index.data = temp;
+                }
+                index = index.next;
+            }
+            current = current.next;
+        }
+
+    }
 }
