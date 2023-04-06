@@ -36,22 +36,23 @@ public class SinglyLinkedList {
     }
 //    remove -- remove an element (specified by numeric index) from the list
     public void remove(int indexToRemove){
-//        Node remove = new Node();
-////        head = null means LinkedList is empty
-//        if (head == null){
-////        head = add so it becomes the first node
-//            head.next = null;
-//        } else {
-//            Node current = head;
-//            while (current.next != null) {
-////            set current to the next one
-//                current = current.next;
-//                current.next = current(indexToRemove);
-//            }
-//        }
-        //completely skip over indexToRemove so the index prior to indexToRemove
-//        should .next to the one after indexToRemove or point to null
+        Node current = head;
+        Node previous = null;
+        while (current != null) {
+            if (current.data == indexToRemove) {
+                if (previous == null) {
+                    head = current.next;
+                } else {
+                    previous.next = current.next;
+                    // skips over indexToRemove
+                }
+            }
+            previous = current;
+            current = current.next;
+        }
     }
+    //completely skip over indexToRemove so the index prior to indexToRemove
+//        should .next to the one after indexToRemove or point to null
 
 //    contains -- returns true if the element is in the list, false otherwise
     public boolean ifContains(int containing){
