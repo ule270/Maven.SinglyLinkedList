@@ -111,17 +111,17 @@ public class SinglyLinkedList {
         return count;
     }
 //    get -- returns the element at the specified index
-    public Node getElement(int index){
+    public int getElement(int index) {
         Node current = head;
-        Node get = null;
+        int currIndex = 0;
         while (current.next != null) {
-            if (current.data != get.data) {
-                return null;
+            if (currIndex == index) {
+                return current.data;
             }
             current = current.next;
             index++;
         }
-        return get;
+        return current.data;
     }
 //    copy -- returns a new linked list containing the same values
 //    deep copy give same values vs shallow gives your reference addresses.
