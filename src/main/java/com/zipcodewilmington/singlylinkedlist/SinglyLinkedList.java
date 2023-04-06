@@ -124,9 +124,20 @@ public class SinglyLinkedList {
         return current.data;
     }
 //    copy -- returns a new linked list containing the same values
-//    deep copy give same values vs shallow gives your reference addresses.
+//    deep copy give same values vs
+//    shallow gives your reference addresses.
     public SinglyLinkedList copy() {
-        return null;
+        SinglyLinkedList copy = new SinglyLinkedList();
+        if (head == null){
+            return copy;
+        }
+        Node current = head;
+        while (current.next !=null){
+            copy.addElement(current.data);
+            current = current.next;
+        }
+        copy.addElement(current.data); // for last node;
+        return copy;
     }
 //    sort -- sorts the list using your algorithm of choice.
 //    You must perform the sorting yourself (no fair using someone else's library)

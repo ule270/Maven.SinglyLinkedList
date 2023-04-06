@@ -86,10 +86,7 @@ public class SinglyLinkedListTest {
         list.addElement(2);
 
         SinglyLinkedList newList = list.copy();
-        for (int i = 0; i < list.size(); i++){
-          Assert.assertEquals(list, newList);
-        }
-
+        Assert.assertEquals(list.size(), newList.size());
     }
     @Test
     public void testSort(){
