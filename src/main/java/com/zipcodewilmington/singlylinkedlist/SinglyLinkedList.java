@@ -38,17 +38,29 @@ public class SinglyLinkedList {
     public void remove(int indexToRemove){
         Node current = head;
         Node previous = null;
-        while (current != null) {
+        while (current != null && current.next != null) {
             if (current.data == indexToRemove) {
                 if (previous == null) {
+                    //removing head node;
                     head = current.next;
                 } else {
+                    // removing non-head node;
                     previous.next = current.next;
                     // skips over indexToRemove
                 }
             }
             previous = current;
             current = current.next;
+        }
+        if (current != null && current.data == indexToRemove){
+            // removing last node in list
+            if (previous == null){
+                // if list had only one node
+                head = null;
+            } else {
+                // removing last non-head node
+                previous.next = null;
+            }
         }
     }
     //completely skip over indexToRemove so the index prior to indexToRemove
@@ -57,8 +69,8 @@ public class SinglyLinkedList {
 //    contains -- returns true if the element is in the list, false otherwise
     public boolean ifContains(int containing){
         Node current = head;
-        while (current != null) {
-            if (current.data == (containing)) {
+        while (current.next != null) {
+            if (current.data == containing) {
                 // needs .data to get the element of the list, not the node;
                 return true;
             }
@@ -67,7 +79,20 @@ public class SinglyLinkedList {
         return false;
     }
 //    find -- returns the element's index if it is in the list, -1 otherwise
-    public int find(int element){
+    public int find(int elementData){
+        Node current = head;
+        int index = 0;
+        while (current.next != null) {
+            if (current.data == elementData) {
+                return index;
+            }
+            // if match not found;
+            current = current.next;
+            index++;
+        }
+        if (current.data == elementData){
+            return index; // checking last node separately
+        }
         return -1;
     }
 //    size -- returns the current size of the list
@@ -87,11 +112,16 @@ public class SinglyLinkedList {
     }
 //    get -- returns the element at the specified index
     public Node getElement(int index){
-        int size = size();
-        for (int i = 0; i < size; i++){
-
+        Node current = head;
+        Node get = null;
+        while (current.next != null) {
+            if (current.data != get.data) {
+                return null;
+            }
+            current = current.next;
+            index++;
         }
-        return null;
+        return get;
     }
 //    copy -- returns a new linked list containing the same values
 //    deep copy give same values vs shallow gives your reference addresses.

@@ -53,7 +53,7 @@ public class SinglyLinkedListTest {
 
         int actual = list.find(1);
 
-        Assert.assertEquals(1, actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
